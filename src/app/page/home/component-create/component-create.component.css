@@ -1,0 +1,21 @@
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .image-preview {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .footer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }

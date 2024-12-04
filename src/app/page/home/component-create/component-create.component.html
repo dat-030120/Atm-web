@@ -1,0 +1,37 @@
+<div class="form-container">
+    <form [formGroup]="productForm" (ngSubmit)="submit()">
+      <h2>ATM Form</h2>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="productForm.get('name')?.hasError('required')">Name is required</mat-error>
+        <mat-error *ngIf="productForm.get('name')?.hasError('minlength')">Minimum 5 characters required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Manufacturer</mat-label>
+        <input matInput formControlName="manufacturer">
+      </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Type</mat-label>
+        <input matInput formControlName="type">
+      </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Seri</mat-label>
+        <input matInput formControlName="seri" type="number">
+        <mat-error *ngIf="productForm.get('seri')?.hasError('required')">Seri is required</mat-error>
+        <mat-error *ngIf="productForm.get('seri')?.hasError('pattern')">Must be a number</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Image URL</mat-label>
+        <input matInput formControlName="img">
+      </mat-form-field>
+      <div class="image-preview" *ngIf="productForm.get('img')?.value">
+        <img [src]="productForm.get('img')?.value" alt="Product Image" width="150">
+      </div>
+      <div class="footer">
+        <button mat-raised-button color="primary" >Cancel</button>
+        <button  mat-flat-button color="primary" type="submit" [disabled]="productForm.invalid">Submit</button>
+      </div>
+    
+    </form>
+  </div>

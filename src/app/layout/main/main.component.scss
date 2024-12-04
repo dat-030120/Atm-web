@@ -1,0 +1,49 @@
+.banner {
+    height: 60px;
+}
+
+.baner {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 12px;
+}
+
+.header img {
+    height: 40px;
+    width: 40px;
+}
+
+.header .button-find {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #1469c0;
+    background-color: #1469c0;
+    border-radius: 4px;
+  }
+
+.custom-form-field{
+    margin-right: 10px;
+}
+header .icon{
+    color: #f1f1f1;
+}
+.body_layOut{
+    height: auto;
+    width: auto;
+    padding: 30px;
+}

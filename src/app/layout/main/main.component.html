@@ -1,0 +1,29 @@
+
+<header  class="header ">
+    <div class="baner">
+         <img src="https://th.bing.com/th/id/OIP.7xespYWYGwukKzi-AmnMbwHaHQ?rs=1&pid=ImgDetMain" alt="Logo" > 
+        <div [routerLink]="['/home']"  class="logo">ATM Management System</div>
+    </div>
+    <div  class="search-bar">
+         <div>
+            <mat-form-field appearance="outline" class="custom-form-field">
+                <mat-select [(ngModel)]="type" >
+                  <mat-option [value]="0" >All</mat-option>
+                  <mat-option [value]="1" >Atm name</mat-option>
+                  <mat-option [value]="2" >Manufacturer</mat-option>
+                  <mat-option [value]="3" >Type</mat-option>
+                  <mat-option [value]="4" >Serial</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="custom-form-field ">
+                <input matInput type="text" [(ngModel)]="input">
+              </mat-form-field>
+              <button (click)="search()" mat-raised-button class="button-find"><i class=" icon fa-solid fa-magnifying-glass"></i></button>
+         </div>
+    </div>
+</header> 
+<section class="body_layOut">
+    <router-outlet></router-outlet>
+
+</section>
+

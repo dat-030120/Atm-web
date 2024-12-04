@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+  }
+  .grid-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; /* Mặc định 6 cột bằng nhau */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .grid-header {
+    display: contents; /* Để tiêu đề hiển thị cùng layout grid */
+    color: white;
+    font-weight: bold;
+  }
+  .grid-header div {
+    padding: 10px;
+    text-align: center;
+    border-right: 1px solid #005a9e;
+    background-color: #0078d4;
+
+  }
+  .grid-header div:last-child {
+    border-right: none; 
+  }
+  .grid-wrap-row{
+    overflow-y: auto;
+    height: 600px;
+    display: contents; 
+  }
+  .grid-row {
+    display: contents; 
+  }
+
+  .grid-row div {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  .grid-row:nth-child(even) div {
+    background-color: #f9f9f9; 
+  }
+
+  @media (min-width: 769px) {
+    .grid-table {
+      grid-template-columns: 1fr 1fr 1.2fr 1fr 0.8fr 1fr; /* Cột 3 lớn hơn 20%, cột 5 nhỏ hơn 20% */
+    }
+  }
+  @media (max-width: 768px) {
+    .grid-table {
+      grid-template-columns: repeat(2, 1fr); /* Chuyển sang 2 cột cho màn hình nhỏ */
+    }
+  }
+  @media (max-width: 480px) {
+    .grid-table {
+      grid-template-columns: 1fr; /* Chuyển sang 1 cột cho màn hình rất nhỏ */
+    }
+  }
