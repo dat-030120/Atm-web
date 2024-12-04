@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { map, Observable, of, Subject, Subscribable } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, Subject, Subscribable } from 'rxjs';
 
 // import { injectConfigs } from '../config/utils';
 // import { DomainService } from '../services/domain-config.service';
@@ -12,26 +12,29 @@ import { map, Observable, of, Subject, Subscribable } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  endpointApiConfig = 'https://dev.thabicare.zenix.com.vn/api/v1/';
-  public observable = new Subject<{type:number,input:string|null}>();
-  // getCities(): Observable<any> {
-  //   return this.http.get<City[]>(this.endpointAddress + '/cities.json');
-  // }
-  // getDistricts(cityName: string): Observable<District[]> {
-  //   return this.http.get<District[]>(this.endpointAddress + '/districts.json').pipe(
-  //     map((districts) => {
-  //       return districts.filter((district) => district.parent === cityName);
-  //     })
-  //   );
-  // }
+  endpointApiConfig = 'http://localhost:3000/products';
+  public observable = new BehaviorSubject<{type:number,input:string|null}>({type:0,input:null});
+  getListAtm(body:any): Observable<any> {
+     let search=''
+    switch (body.type) {
+      case 0: break;
+      case 1:{ search='name'; break};
+      case 2:{ search='manufacturer'; break};
+      case 3:{ search='type'; break};
+      case 4:{ search='seri'; break};
+    }
+    if(!search || !body.input){
+      return this.http.get(this.endpointApiConfig)
+    }
+    return this.http.get(this.endpointApiConfig+'/?'+search+'='+body.input)
+  }
+  getListAtmDetail(id:string): Observable<any> {
 
-  // getWards(districtName: string): Observable<Ward[]> {
-  //   return this.http.get<Ward[]>(this.endpointAddress + '/wards.json').pipe(
-  //     map((wards) => {
-  //       return wards.filter((ward) => ward.parent === districtName);
-  //     })
-  //   );
-  // }
+   return this.http.get(this.endpointApiConfig+'/'+id)
+ }
+  getAdd(body:any): Observable<any> {
+    return this.http.post(this.endpointApiConfig+'/?')
+  }
   // login(body:any): Observable<any> {
   //   return this.http.post<any>(
   //     this.endpointApiConfig + `user-login/`

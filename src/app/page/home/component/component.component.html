@@ -30,4 +30,5 @@
 
   </div>
 </div>
-
+<mat-paginator [length]="apiData.length" [pageSizeOptions]="[10]" aria-label="Select page"  (page)="onPageChange($event)" >
+</mat-paginator>
