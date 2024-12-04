@@ -29,8 +29,8 @@
         <img [src]="productForm.get('img')?.value" alt="Product Image" width="150">
       </div>
       <div class="footer">
-        <button mat-raised-button color="primary" >Cancel</button>
-        <button  mat-flat-button color="primary" type="submit" [disabled]="productForm.invalid">Submit</button>
+        <button (click)="cansel()" mat-raised-button color="primary" >Cancel</button>
+        <button *ngIf="!data.view"  mat-flat-button color="primary" type="submit" [disabled]="productForm.invalid">Submit</button>
       </div>
     
     </form>

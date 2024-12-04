@@ -24,8 +24,8 @@
       <div>{{item.manufacturer}}</div>
       <div>{{item.type}}</div>
       <div>{{item.seri}}</div>
-      <div><img *ngIf="!item.img" src="{{item.img}}" alt=""></div>
-      <div> <button mat-button>[View]</button ><button mat-button>[Edit]</button><button mat-button>[Delete]</button></div>
+      <div><img *ngIf="item.img" src="{{item.img}}" alt=""></div>
+      <div> <button mat-button (click)="openModal(item,true)">[View]</button ><button mat-button  (click)="openModal(item,false)">[Edit]</button><button  (click)="deleteAtm(item.id)" mat-button>[Delete]</button></div>
     </div>
 
   </div>

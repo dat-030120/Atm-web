@@ -33,7 +33,14 @@ export class ApiService {
    return this.http.get(this.endpointApiConfig+'/'+id)
  }
   getAdd(body:any): Observable<any> {
-    return this.http.post(this.endpointApiConfig+'/?')
+    console.log(body)
+    return this.http.post(this.endpointApiConfig+'/',body)
+  }
+  getEdit(body:any): Observable<any> {
+    return this.http.put(this.endpointApiConfig+'/'+body.id,body)
+  }
+  getDelete(id:string): Observable<any> {
+    return this.http.delete(this.endpointApiConfig+'/'+id)
   }
   // login(body:any): Observable<any> {
   //   return this.http.post<any>(
